@@ -30,13 +30,12 @@ with open(PATH_FASTA) as fp:
         accessionID_fasta.append(FastaOrder(pos_fasta,accessionID))
         pos_fasta +=1
 
-        if pos_fasta >1_000_000: break
+        #if pos_fasta >1_000_000: break
 
 pd.DataFrame(accessionID_fasta).to_csv("data/fasta_order.csv",index=False) 
 
 # Load and filter metadata
-metadata = pd.read_csv(PATH_METADATA, sep="\t", usecols=COLS_METADATA, 
-                        nrows=100_000)
+metadata = pd.read_csv(PATH_METADATA, sep="\t", usecols=COLS_METADATA) #nrows=100_000)
 # Remove NaN in Clades and not-complete sequences
 metadata.dropna(axis="rows",
             how="any",

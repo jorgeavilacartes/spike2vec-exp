@@ -15,8 +15,8 @@ RANDOM_STATE = PARAMETERS.get("RANDOM_STATE")
 
 undersample=pd.read_csv("data/undersample_by_pango.csv")
 
-X = undersample["accessionID"].tolist()*2
-y = undersample["pango_lineage"].tolist()*2
+X = undersample["accessionID"].tolist()
+y = undersample["pango_lineage"].tolist()
 
 # split dataset
 X_train, X_test, y_train, y_test = train_test_split(X,y,
